@@ -13,15 +13,6 @@ export default function CreateCustomer({
     first_name: "",
     last_name: "",
   });
-//   console.log(formData);
-
-//   const handleInputChange = (e) => {
-//     setFormData({
-//       ...formData,
-//       [e.target.name]:
-//         e.target.name === "photo" ? e.target.files[0] : e.target.value,
-//     });
-//   };
   const handleInputChange = (e) => {
     if (e.target.name === "avatar") {
       const file = e.target.files[0];
