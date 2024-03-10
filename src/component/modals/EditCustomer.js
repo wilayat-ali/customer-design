@@ -18,7 +18,6 @@ export default function EditDialog({ showModal, setShowModal, customerData }) {
         ...formData,
         avatar: imageUrl,
       });
-      console.log(formData);
     } else {
       setFormData({
         ...formData,
@@ -29,6 +28,10 @@ export default function EditDialog({ showModal, setShowModal, customerData }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (formData.email.trim() === '' || formData.first_name.trim() === '') {
+      alert('Please fill in the required fields (Email and First Name)');
+      return;
+    }
     dispatch(updateCustomer(formData));
     setShowModal(false);
   };
@@ -66,7 +69,7 @@ export default function EditDialog({ showModal, setShowModal, customerData }) {
                   <div className="text-center mb-4">
                     <input
                       name="first_name"
-                      value={formData.first_name}
+                      value={formData.first_name||''}
                       onChange={handleInputChange}
                       type="text"
                       className="border border-gray-300 px-3 py-2 mt-1 w-full rounded-md focus:outline-none focus:ring focus:ring-indigo-200"
@@ -76,7 +79,7 @@ export default function EditDialog({ showModal, setShowModal, customerData }) {
                   <div className="text-center mb-4">
                     <input
                       name="email"
-                      value={formData.email}
+                      value={formData.email||''}
                       onChange={handleInputChange}
                       type="email"
                       className="border border-gray-300 px-3 py-2 mt-1 w-full rounded-md focus:outline-none focus:ring focus:ring-indigo-200"
@@ -99,7 +102,7 @@ export default function EditDialog({ showModal, setShowModal, customerData }) {
                       />
                     </div>
                     <div>
-                      <p className="text-sm ml-4 text-gray-500">
+                      <p className="text-sm w-20 ml-4 text-gray-500">
                         {formData.avatar ? formData.avatar : "no file upload"}
                       </p>
                     </div>

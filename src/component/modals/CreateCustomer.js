@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addCustomer } from "../../store/reducers/customerSlice";
 
@@ -28,7 +28,6 @@ export default function CreateCustomer({
       });
     }
   };
-  console.log(formData);
 
   const handleSubmit = (e) => {
     if (formData.email.trim() === '' || formData.first_name.trim() === '') {
@@ -48,7 +47,6 @@ export default function CreateCustomer({
     });
     setAddCustomerModal(false)
   };
-  const modalRef = useRef();
 
   return (
     <>
@@ -56,7 +54,6 @@ export default function CreateCustomer({
         <>
           <div className="opacity-25  fixed inset-0 z-40 bg-black"></div>
           <div
-            ref={modalRef}
             className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none"
           >
             <div className="relative mx-auto w-80">

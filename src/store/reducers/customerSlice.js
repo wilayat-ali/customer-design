@@ -2,8 +2,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  list: [],
-};
+    list: JSON.parse(localStorage.getItem('customers')) || [], // Load initial state from local storage
+  };
 
 const customerSlice = createSlice({
   name: 'customers',

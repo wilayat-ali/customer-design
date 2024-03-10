@@ -17,7 +17,7 @@ const Sidebar = () => {
             alt="logo"
             className="w-6 h-6 filter invert grayscale"
           />
-          CUSTOMER
+          CUSTOMERS
         </button>
       </div>
     </div>
